@@ -75,7 +75,7 @@ portalName,URL,Provider,titleSource,spatialCoverage
 12b-17043,http://gisdata-dupage.opendata.arcgis.com/data.json,DuPage County GIS,"DuPage County, Illinois","DuPage County, Illinois|Illinois"
 12b-17097,http://data-lakecountyil.opendata.arcgis.com/data.json,"Lake County, IL Open Data & Records Hub","Lake County, Illinois","Lake County, Illinois|Illinois"
 12b-17143,http://data-peoriacountygis.opendata.arcgis.com/data.json,Peoria County GIS Open Data Portal,"Peoria County, Illinois","Peoria County, Illinois|Illinois"
-12c-01,https://opioid-awareness-peoriacountygis.hub.arcgis.com/data.json,Opioid Awareness | Peoria City/County Health Department,"Peoria, Illinois","City of Peoria, Illinois|Illinois"
+12c-02,https://opioid-awareness-peoriacountygis.hub.arcgis.com/data.json,Opioid Awareness | Peoria City/County Health Department,"Peoria, Illinois","City of Peoria, Illinois|Illinois"
 12d-03,https://library-uchicago.opendata.arcgis.com/data.json,University of Chicago Library GIS Data Hub,University of Chicago,"Chicago, Illinois|Illinois"
 13a-01,http://www.nebraskamap.gov/data.json,NebraskaMap,Nebraska,Nebraska
 13a-04,https://data-outdoornebraska.opendata.arcgis.com//data.json,Nebraska Game & Parks Map and Data Portal,Nebraska,Nebraska
