@@ -28,6 +28,7 @@ portalName,URL,Provider,titleSource,spatialCoverage
 05c-01,https://opendata.minneapolismn.gov/data.json,Open Data Minneapolis,"Minneapolis, Minnesota","Minneapolis, Minnesota, United States|Minnesota, United States"
 05c-02,https://information.stpaul.gov/data.json,Open Information Saint Paul,"Saint Paul, Minnesota","Saint Paul, Minnesota, United States|Minnesota, United States"
 06a-01,http://gis-michigan.opendata.arcgis.com/data.json,State of Michigan Open Data Portal,Michigan,Michigan
+06a-02,https://gis-midnr.opendata.arcgis.com/data.json,Michigan DNR Open Data Portal,Michigan,Michigan
 06b-26125,http://accessoakland.oakgov.com/data.json,"Access Oakland, Oakland County, Michigan","Oakland County, Michigan","Oakland County, Michigan|Michigan"
 06f-01,http://maps-semcog.opendata.arcgis.com/data.json,SEMCOG Open Data Portal,Southeast Michigan,Michigan
 07b-26161,http://data-washtenaw.opendata.arcgis.com/data.json,"Washtenaw County, Michigan Open Data","Washtenaw County, Michigan","Washtenaw County, Michigan|Michigan"
