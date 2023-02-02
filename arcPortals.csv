@@ -64,6 +64,7 @@ portalName,URL,Provider,titleSource,spatialCoverage
 10c-03,https://data-cityofmadison.opendata.arcgis.com/data.json,"City of Madison, WI GIS Open Data Portal","Madison, Wisconsin","City of Madison, Wisconsin|Wisconsin"
 10c-04,https://rapidsdata-wisconsinrapids.opendata.arcgis.com/data.json,Wisconsin Rapids Online Map Portal,"Wisconsin Rapids, Wisconsin","City of Wisconsin Rapids, Wisconsin|Wisconsin"
 11a-01,http://ogrip-geohio.opendata.arcgis.com/data.json,GEOhio Spatial Data Discovery Portal,Ohio,Ohio
+11b-39041,https://gisdata-delco.hub.arcgis.com/data.json,Delaware County GIS Data Hub,"Delaware County, Ohio","Delaware County, Ohio|Ohio"
 11b-39009,http://data-athgis.opendata.arcgis.com/data.json,Athens County Auditor GIS: Open Data,"Athens County, Ohio","Athens County, Ohio|Ohio"
 11b-39035,http://data-cuyahoga.opendata.arcgis.com/data.json,Cuyahoga County Open Data,"Cuyahoga County, Ohio","Cuyahoga County, Ohio|Ohio"
 11b-39049,http://auditor-fca.opendata.arcgis.com/data.json,"Franklin County Auditor, Ohio Open Data","Franklin County, Ohio","Franklin County, Ohio|Ohio"
