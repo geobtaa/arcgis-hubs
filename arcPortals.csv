@@ -34,6 +34,7 @@ portalName,URL,Provider,titleSource,spatialCoverage
 07b-26161,http://data-washtenaw.opendata.arcgis.com/data.json,"Washtenaw County, Michigan Open Data","Washtenaw County, Michigan","Washtenaw County, Michigan|Michigan"
 07c-01,http://data.detroitmi.gov/data.json,Detroit Open Data Portal,"Detroit, Michigan","Detroit, Michigan|Michigan"
 07d-02,https://mbgna-umich.hub.arcgis.com/data.json,UM Matthaei Botanical Gardens and Nichols Arboretum,University of Michigan,"Ann Arbor, Michigan|Michigan"
+08a-02,https://newdata-dcnr.opendata.arcgis.com/data.json,Pennsylvania Department of Conservation and Natural Resources Open Data Portal,Pennsylvania,Pennsylvania
 08b-42003,http://openac-alcogis.opendata.arcgis.com/data.json,Allegheny County GIS Open Data,"Allegheny County, Pennsylvania","Allegheny County, Pennsylvania|Pennsylvania"
 08b-42027,http://gisdata-centrecountygov.opendata.arcgis.com/data.json,Centre County Open Data,"Centre County, Pennsylvania","Centre County, Pennsylvania|Pennsylvania"
 08b-42029,https://chester-county-s-gis-hub-chesco.hub.arcgis.com/data.json,Chester County GIS Hub,"Chester County, Pennsylvania","Chester County, Pennsylvania|Pennsylvania"
