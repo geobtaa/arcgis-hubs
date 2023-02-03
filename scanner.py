@@ -39,10 +39,9 @@ Changed February 1, 2023
 removes complex functions in order to run more regularly
 
 """
-# To run this script you need a csv with five columns (portalName, URL, provider, titleSource, and spatialCoverage) with details about ESRI open data portals to be checked for new records.
 # Need to define directory path (containing arcPortals.csv, folder "jsons" and "reports"), and list of fields desired in the printed report
-# The script currently prints two combined reports - one of new items and one with deleted items.
-# The script also prints a status report giving the total number of resources in the portal, as well as the numbers of added and deleted items.
+# The script currently prints one combined report - one of new items
+# The script also prints a status report giving the total number of resources in the portal
 
 import json
 import csv
@@ -76,14 +75,14 @@ directory = r'.'
 
 
 # csv file contaning portal list 
-portalFile = 'arcNew.csv'
+portalFile = 'arcNewNew.csv'
 
 # list of metadata fields from the DCAT json schema for open data portals desired in the final report
 fieldnames = ['Title', 'Alternative Title', 'Description', 'Language', 'Creator', 'Title Source', 'Resource Class',
               'Theme', 'Keyword', 'Date Issued', 'Temporal Coverage', 'Date Range', 'Spatial Coverage',
               'Bounding Box', 'Resource Type', 'Format', 'Information', 'Download', 'MapServer',
-              'FeatureServer', 'ImageServer', 'ID', 'Identifier', 'Provider', 'Code', 'Member Of', 'Is Part Of', 'Status',
-              'Accrual Method', 'Date Accessioned', 'Rights', 'Access Rights', 'Suppressed', 'Child Record']
+              'FeatureServer', 'ImageServer', 'ID', 'Identifier', 'Provider', 'Code', 'Member Of', 'Is Part Of', 'Rights',
+              'Accrual Method', 'Date Accessioned', 'Access Rights']
 
 # list of fields to use for the deletedItems report
 delFieldsReport = ['ID', 'document[b1g_dateRetired_s]', 'document[b1g_status_s]', 'document[publication_state]']
@@ -157,32 +156,33 @@ def getIdentifiers(data):
         json_ids[x] = data["dataset"][x]["identifier"]
     return json_ids
 
-# UPDATE
+
 def getTitles(data):
     json_titles = {}
     for x in range(len(data["dataset"])):
         json_titles[x] = data["dataset"][x]["title"]
     return json_titles
 
-
+'''Auto-generate Title field be like alternativeTitle [titleSource(place name)] {year if exist in alternative title}'''
 def format_title(alternativeTitle, titleSource):
-    '''Auto-generate Title field be like alternativeTitle [titleSource(place name)] {year if exist in alternative title}'''
     # find if year exist in alternativeTitle
     year = ''  
     year_range = re.findall(r'(\d{4})-(\d{4})', alternativeTitle)
-    single_year = re.match(r'.*([1-3][0-9]{3})', alternativeTitle)   
+#     single_year = re.match(r'.*([1-3][0-9]{3})', alternativeTitle)  
+    single_year = re.match(r'.*(17\d{2}|18\d{2}|19\d{2}|20\d{2})', alternativeTitle)    
     if year_range:   # if a 'yyyy-yyyy' exists
         year = '-'.join(year_range[0])
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
     elif single_year:  # or if a 'yyyy' exists
         year = single_year.group(1)
+
+
+
+
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
-    
-    if titleSource == 'Esri':
-        title = alternativeTitle
-    else:
-        title = alternativeTitle + ' [{}]'.format(titleSource)
         
+    title = alternativeTitle + ' [{}]'.format(titleSource)
+    
     if year:
         title += ' {' + year +'}'
         
@@ -198,16 +198,20 @@ def metadataNewItems(newdata, newitem_ids):
         identifier = v
         metadata = []
 
+#ALTERNATIVE TITLE
         alternativeTitle = ""
         try:
             alternativeTitle = cleanData(newdata["dataset"][y]['title'])
         except:
             alternativeTitle = newdata["dataset"][y]['title']
-
+            
+#DESCRIPTION
         description = cleanData(newdata["dataset"][y]['description'])
         # Remove newline, whitespace, defalut description and replace singe quote, double quote
         if description == "{{default.description}}":
             description = description.replace("{{default.description}}", "")
+        elif description == "{{description}}":
+            description = description.replace("{{description}}", "")
         else:
             description = re.sub(r'[\n]+|[\r\n]+', ' ',
                                  description, flags=re.S)
@@ -215,14 +219,16 @@ def metadataNewItems(newdata, newitem_ids):
             description = description.replace(u"\u2019", "'").replace(u"\u201c", "\"").replace(u"\u201d", "\"").replace(
                 u"\u00a0", "").replace(u"\u00b7", "").replace(u"\u2022", "").replace(u"\u2013", "-").replace(u"\u200b", "")
 
-        language = "eng"
- 
+ #CREATOR
         creator = newdata["dataset"][y]["publisher"]
         for pub in creator.values():
             try:
                 creator = pub.replace(u"\u2019", "'")
             except:
                 creator = pub
+
+
+# DISTRIBUTION
 
         format_types = []
         resourceClass = ""
@@ -286,11 +292,16 @@ def metadataNewItems(newdata, newitem_ids):
         keyword_list = []
         keyword_list = '|'.join(keyword).replace(' ', '')
 
-        dateIssued = cleanData(newdata["dataset"][y]['issued'])
+        dateIssued = cleanData(newdata["dataset"][y]['issued']).split('T', 1)[0] 
         temporalCoverage = ""
         dateRange = ""
 
         information = cleanData(newdata["dataset"][y]['landingPage'])
+        
+        try:
+            rights = cleanData(newdata["dataset"][y]['license'])
+        except:
+            rights = ""   
 
         featureServer = ""
         mapServer = ""
@@ -306,22 +317,10 @@ def metadataNewItems(newdata, newitem_ids):
         except:
             print(identifier)
 
-        slug = identifier.rsplit('/', 1)[-1]
-        identifier_new = "https://hub.arcgis.com/datasets/" + slug
-        isPartOf = portalName
-        if isPartOf in ["07d-02", "12d-03"]:
-            memberOf = "dc8c18df-7d64-4ff4-a754-d18d0891187d"
-        else:
-            memberOf = "ba5cc745-21c5-4ae9-954b-72dd8db6815a"
-
-        status = "Active"
-        accuralMethod = "ArcGIS Hub"
-        dateAccessioned = time.strftime('%Y-%m-%d')
-
-        rights = ""
-        accessRights = "Public"
-        suppressed = "FALSE"
-        child = "FALSE"
+# GET CLEAN IDENTIFIER
+        slug = identifier.split('=', 1)[-1].replace("&sublayer=", "_")
+        querystring = parse_qs(urlparse(identifier).query)
+        identifier_new = "https://hub.arcgis.com/datasets/" + "" + querystring["id"][0]
 
         # auto-generate Title as alternativeTitle [titleSource] {YEAR if it exists in alternativeTitle}
         title = format_title(alternativeTitle, titleSource)
@@ -335,13 +334,15 @@ def metadataNewItems(newdata, newitem_ids):
         # if 'LiDAR' exists in Title or Description, add it to Resource Type
         if 'LiDAR' in title or 'LiDAR' in description:
             resourceType = 'LiDAR'
+        if 'imagery' in title or 'imagery' in description or 'imagery' in keyword_list:
+            resourceClass = 'Imagery'
 
         metadataList = [title, alternativeTitle, description, language, creator, titleSource,
                         resourceClass, theme, keyword_list, dateIssued, temporalCoverage,
                         dateRange, spatialCoverage, bbox, resourceType,
                         formatElement, information, downloadURL, mapServer, featureServer,
-                        imageServer, slug, identifier_new, provider, portalName, memberOf, isPartOf, status,
-                        accuralMethod, dateAccessioned, rights, accessRights, suppressed, child]
+                        imageServer, slug, identifier_new, provider, portalName, memberOf, isPartOf, rights,
+                        accrualMethod, dateAccessioned, accessRights]
 
         # deletes data portols except genere = 'Geospatial data' or 'Aerial imagery'
         for i in range(len(metadataList)):
@@ -373,12 +374,18 @@ with open(portalFile, newline='', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         # Read in values from the portals list to be used within the script or as part of the metadata report
-        portalName = row['portalName']
-        url = row['URL']
-        provider = row['Provider']
-        titleSource = row['titleSource']
-        spatialCoverage = row['spatialCoverage']
+        portalName = row['ID']
+        url = row['Identifier']
+        provider = row['Title']
+        titleSource = row['Publisher']
+        spatialCoverage = row['Spatial Coverage']
+        isPartOf  = row['ID']
+        memberOf = row['Member Of']
         print(portalName, url)
+        accrualMethod = "ArcGIS Hub"
+        dateAccessioned = time.strftime('%Y-%m-%d')
+        accessRights = "Public"
+        language = "eng"
 
         # For each open data portal in the csv list...
         # create an empty list to extract all previous action dates only from file names
@@ -527,8 +534,8 @@ newItemsReport = directory + \
     "/reports/allNewItems_%s.csv" % (ActionDate)
 printItemReport(newItemsReport, fieldnames, All_New_Items)
 
-delItemsReport = directory + "/reports/allDeletedItems_%s.csv" % (ActionDate)
-printItemReport(delItemsReport, delFieldsReport, All_Deleted_Items)
+# delItemsReport = directory + "/reports/allDeletedItems_%s.csv" % (ActionDate)
+# printItemReport(delItemsReport, delFieldsReport, All_Deleted_Items)
 
 reportStatus = directory + \
     "/reports/portal_status_report_%s.csv" % (ActionDate)
@@ -571,7 +578,6 @@ df_csv = df_csv[df_csv['Title Source'] != 'Esri'].reset_index(drop=True)
 df_csv['State'] = [statedict[row['Code']] if row['Code'] in statedict.keys(
 ) else statedict[row['Code'][0:2]] for _, row in df_csv.iterrows()]
 
-
 """ create bounding boxes for csv file """
 
 
@@ -611,7 +617,7 @@ def format_coordinates(df, identifier):
 
 df_csvlist = format_coordinates(df_csv, 'ID')
 df_clean = df_csvlist[0]
-# df_wrongcoords = df_csvlist[1]
+df_wrongcoords = df_csvlist[1]
 
 
 df_newitems = pd.read_csv(newItemsReport)
