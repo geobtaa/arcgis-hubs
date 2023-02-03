@@ -1,0 +1,85 @@
+Provider,titleSource,spatialCoverage,ID,URL,portalName
+Allegheny County GIS Open Data,Pennsylvania--Allegheny County,Pennsylvania--Allegheny County|Pennsylvania,08b-42003,https://openac-alcogis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08b-42003
+Anne Arundel County GIS Data,Maryland--Anne Arundel County,Maryland--Anne Arundel County|Maryland,04b-24003,https://maps.aacounty.org//api/feed/dcat-us/1.1.json,04b-24003
+"Ashland County, WI GIS Open Data Portal",Wisconsin--Ashland County,Wisconsin--Ashland County|Wisconsin,10b-55003,https://data-ashlandcountywi.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55003
+Athens County GIS Data,Ohio--Athens County,Ohio--Athens County|Ohio,11b-39009,https://data-athgis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11b-39009
+Big Stone County Open Data,Minnesota--Big Stone County,Minnesota--Big Stone County|Minnesota,05b-27011,https://data-bigstonecounty.opendata.arcgis.com/api/feed/dcat-us/1.1.json,05b-27011
+Calvert County Open GIS Data Portal,Maryland--Calvert County,Maryland--Calvert County|Maryland,04b-24009,https://calvert-county-open-data-calvertgis.hub.arcgis.com/api/feed/dcat-us/1.1.json,04b-24009
+Capital Area Open Data Portal,Wisconsin--Dane County,Wisconsin--Dane County|Wisconsin,10b-55025-01,https://data-carpc.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55025
+Carroll County GIS Open Data,Maryland--Carroll County,Maryland--Carroll County|Maryland,04b-24013,https://data-carrollco-md.opendata.arcgis.com/api/feed/dcat-us/1.1.json,04b-24013
+Carver County GIS Data,Minnesota--Carver County,Minnesota--Carver County|Minnesota,05b-27019,http://data-carver.opendata.arcgis.com/api/feed/dcat-us/1.1.json,05b-27019
+Centre County Open Data,Pennsylvania--Centre County,Pennsylvania--Centre County|Pennsylvania,08b-42027,http://gisdata-centrecountygov.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08b-42027
+Chippewa County Open GIS Data,Minnesota--Chippewa County,Minnesota--Chippewa County|Minnesota,05b-27023,https://data-chippewa.opendata.arcgis.com/api/feed/dcat-us/1.1.json,05b-27023
+City of Grand Island Public GIS Data Portal,Nebraska--Grand Island,Nebraska--Grand Island|Nebraska,13c-02,https://data-cityofgi.opendata.arcgis.com/api/feed/dcat-us/1.1.json,13c-02
+"City of Madison, WI GIS Open Data Portal",Wisconsin--Madison,Wisconsin--Madison|Wisconsin,10c-03,https://data-cityofmadison.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10c-03
+City of Saint Paul GIS Data,Minnesota--Saint Paul,Minnesota--Saint Paul|Minnesota,05c-02,https://information.stpaul.gov/api/feed/dcat-us/1.1.json,05c-02
+Clay County Open Data,Minnesota--Clay County,Minnesota--Clay County|Minnesota,05b-27027,https://data-claycountymn.opendata.arcgis.com/api/feed/dcat-us/1.1.json,05b-27027
+Cook Central,Illinois--Cook County,Illinois--Cook County|Illinois,12b-17031,https://hub-cookcountyil.opendata.arcgis.com/api/feed/dcat-us/1.1.json,12b-17031
+Crawford County Open Data,Pennsylvania--Crawford County,Pennsylvania--Crawford County|Pennsylvania,08b-42039,https://share-open-data-crawfordcountypa.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08b-42039
+Cuyahoga County Open Data,Ohio--Cuyahoga County,Ohio--Cuyahoga County|Ohio,11b-39035,https://data-cuyahoga.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11b-39035
+Dauphin County GIS Data Portal,Pennsylvania--Dauphin County,Pennsylvania--Dauphin County|Pennsylvania,08b-42043,https://data-dauphinco.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08b-42043
+Delaware County GIS,Ohio--Delaware County,Ohio--Delaware County|Ohio,11b-39041,https://gisdata-delco.hub.arcgis.com/api/feed/dcat-us/1.1.json,11b-39041
+Delaware Valley Regional Planning Commission (DVRPC),Pennsylvania,Pennsylvania,04f-01,https://dvrpc-dvrpcgis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,04f-01
+Detroit Open Data,Michigan--Detroit,Michigan--Detroit|Michigan,07c-01,https://data.detroitmi.gov/api/feed/dcat-us/1.1.json,07c-01
+"Discover Dane County, WI",Wisconsin--Dane County,Wisconsin--Dane County|Wisconsin,10b-55025,https://gis-countyofdane.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55025
+DuPage County GIS,Illinois--DuPage County,Illinois--DuPage County|Illinois,12b-17043,https://gisdata-dupage.opendata.arcgis.com/api/feed/dcat-us/1.1.json,12b-17043
+Eau Claire County Geospatial Hub,Wisconsin--Eau Claire County,Wisconsin--Eau Claire County|Wisconsin,10b-55035-01,https://hub-eccounty.hub.arcgis.com/api/feed/dcat-us/1.1.json,10b-55035
+"Evansville, Vanderburgh County, Indiana Open Data Collection",Indiana--Evansville,Indiana--Evansville|Indiana-Vanderburgh County|Indiana,01b-18163,https://dev-evansvilleapc.opendata.arcgis.com/api/feed/dcat-us/1.1.json,01b-18163
+"Franklin County Auditor, Ohio Open Data",Ohio--Franklin County,Ohio--Franklin County|Ohio,11b-39049,https://auditor-fca.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11b-39049
+Frederick County Open Data,Maryland--Frederick County,Maryland--Frederick County|Maryland,04b-24021,https://gis-fcgmd.opendata.arcgis.com/api/feed/dcat-us/1.1.json,04b-24021
+"Geodata Hub of Vilas County, WI",Wisconsin--Vilas County,Wisconsin--Vilas County|Wisconsin,10b-55125-01,https://data-vilas.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55125
+GEOhio Spatial Data Discovery Portal,Ohio,Ohio,11a-01,http://ogrip-geohio.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11a-01
+Grant County Open Data Hub,Minnesota--Grant County,Minnesota--Grant County|Minnesota,05b-27051,https://hub-co-grant-mn-us.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27051
+Hennepin County GIS Data,Minnesota--Hennepin County,Minnesota--Hennepin County|Minnesota,05b-27053,https://gis-hennepin.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27053
+IndianaMap ,Indiana,Indiana,09a-04,https://www.indianamap.org/api/feed/dcat-us/1.1.json,
+Iowa Geodata,Iowa,Iowa,03a-03,https://geodata.iowa.gov/api/feed/dcat-us/1.1.json,03a-03
+"Kenosha County, WI GIS Open Data Portal",Wisconsin--Kenosha County,Wisconsin--Kenosha County|Wisconsin,10b-55059,https://dataportal.kenoshacounty.org/api/feed/dcat-us/1.1.json,10b-55059
+Lake County Illinois Open Data Portal,Illinois--Lake County,Illinois--Lake County|Illinois,12b-17097,https://data-lakecountyil.opendata.arcgis.com/api/feed/dcat-us/1.1.json,12b-17097
+"Land Records Data Portal of Columbia County, WI",Wisconsin--Columbia County,Wisconsin--Columbia County|Wisconsin,10b-55021,https://opendata-cclid.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55021
+Lincoln Open Data and Performance Management,Nebraska--Lincoln,Nebraska--Lincoln|Nebraska,13c-01,https://data2-lincolnne.opendata.arcgis.com/api/feed/dcat-us/1.1.json,13c-01
+"Linn County, Iowa Open Data Portal",Iowa--Linn County,Iowa--Linn County|Iowa,03b-19113,http://opendata-linncounty-gis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,03b-19113
+Lorain County GIS Data,Ohio--Lorain County,Ohio--Lorain County|Ohio,11b-39093,https://data-loraingis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11b-39093
+Maryland iMap,Maryland,Maryland,04a-01,http://data.imap.maryland.gov/api/feed/dcat-us/1.1.json,04a-01
+McLean County GIS Consortium Open Data,Illinois--McLean County,Illinois--McLean County|Illinois,02b-17113,http://www.mcgis.org//api/feed/dcat-us/1.1.json,02b-17113
+Michigan DNR Open Data Portal,Michigan,Michigan,06a-02,https://gis-midnr.opendata.arcgis.com/api/feed/dcat-us/1.1.json,06a-02
+Milwaukee County GIS Download,Wisconsin--Milwaukee County,Wisconsin--Milwaukee County|Wisconsin,10b-55079,https://gis-mclio.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55079
+Montgomery County Open Data,Pennsylvania--Montgomery County,Pennsylvania--Montgomery County|Pennsylvania,08b-42091,https://data-montcopa.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08b-42091
+Nebraska Game & Parks Map and Data Portal,Nebraska,Nebraska,13a-04,https://data-outdoornebraska.opendata.arcgis.com/api/feed/dcat-us/1.1.json,13a-04
+NebraskaMap,Nebraska,Nebraska,13a-01,https://www.nebraskamap.gov/api/feed/dcat-us/1.1.json,13a-01
+New Jersey Department of Environmental Protection's (NJDEP) Bureau of GIS,New Jersey,New Jersey,14a-02,https://gisdata-njdep.opendata.arcgis.com/api/feed/dcat-us/1.1.json,14a-02
+New Jersey Geographic Information Network (NJGIN) Open Data Portal,New Jersey,New Jersey,14a-01,https://njogis-newjersey.opendata.arcgis.com/api/feed/dcat-us/1.1.json,14a-01
+"Oakland County, MI Open data",Michigan--Oakland County,Michigan--Oakland County|Michigan,06b-26125,http://accessoakland.oakgov.com/api/feed/dcat-us/1.1.json,06b-26125
+Omaha/Douglas County GIS Open Data Portal,Nebraska--Omaha,Nebraska--Omaha|Nebraska--Douglas County|Nebraska,13b-31055,https://data-dogis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,13b-31055
+Open Data DC,District of Columbia--Washington,District of Columbia--Washington|District of Columbia,04c-01,https://opendata.dc.gov/api/feed/dcat-us/1.1.json,04c-01
+Open Data Minneapolis,Minnesota--Minneapolis,Minnesota--Minneapolis|Minnesota,05c-01,https://opendata.minneapolismn.gov/api/feed/dcat-us/1.1.json,05c-01
+Opioid Awareness | Peoria City/County Health Department ,Illinois--Peoria County,Illinois--Peoria County|Illinois,12c-02,https://opioid-awareness-peoriacountygis.hub.arcgis.com/api/feed/dcat-us/1.1.json,12c-02
+Outagamie County GIS Download,Wisconsin--Outagamie County,Wisconsin--Outagamie County|Wisconsin,10b-55087,https://data-ocgis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55087
+Pennsylvania Department of Conservation and Natural Resources Open Data Portal,Pennsylvania,Pennsylvania,08a-02,https://newdata-dcnr.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08a-02
+Peoria County GIS Open Data Portal,Illinois--Peoria County,Illinois--Peoria County|Illinois,12b-17143,https://data-peoriacountygis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,12b-17143
+PHLmaps,Pennsylvania--Philadelphia,Pennsylvania--Philadelphia|Pennsylvania,08c-01-2,http://data-phl.opendata.arcgis.com/api/feed/dcat-us/1.1.json,08c-01-2
+Pierce County GIS Open Data Portal,Wisconsin--Pierce County,Wisconsin--Pierce County|Wisconsin,10b-55093,https://data-piercecounty-wi.hub.arcgis.com/api/feed/dcat-us/1.1.json,10b-55093
+Polk County GIS Open Data,Minnesota--Polk County,Minnesota--Polk County|Minnesota,05b-27119,https://hub-pcg.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27119
+Pope County Open Data,Minnesota--Pope County,Minnesota--Pope County|Minnesota,05b-27121,https://hub-popecounty.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27121
+Racine County GIS Download,Wisconsin--Racine County,Wisconsin--Racine County|Wisconsin,10b-55101,http://data.racinecounty.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55101
+Ramsey County Open Data,Minnesota--Ramsey County,Minnesota--Ramsey County|Minnesota,05b-27123,https://data-ramseygis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,05b-27123
+Renville County Open GIS Data,Minnesota--Renville County,Minnesota--Renville County|Minnesota,05b-27129,https://hub-renvilleco.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27129
+Saint Louis County GIS & Mapping,Minnesota--St. Louis County,Minnesota--St. Louis County|Minnesota,05b-27137,https://open-data-slcgis.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27137
+Sarpy County GIS Portal,Nebraska--Sarpy County,Nebraska--Sarpy County|Nebraska,13b-31153,https://data2-sarpy.opendata.arcgis.com/api/feed/dcat-us/1.1.json,13b-31153
+Sauk County GIS Download,Wisconsin--Sauk County,Wisconsin--Sauk County|Wisconsin,10b-55111,https://data-saukgis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55111
+SEMCOG Open Data,Michigan,Michigan,06f-01,http://maps-semcog.opendata.arcgis.com/api/feed/dcat-us/1.1.json,06f-01
+"South Bend, IN Open Data",Indiana--South Bend,Indiana--South Bend|Indiana,09c-01,http://data-southbend.opendata.arcgis.com/api/feed/dcat-us/1.1.json,09c-01
+St. Croix County GIS Download,Wisconsin--St. Croix County,Wisconsin--St. Croix County|Wisconsin,10b-55109,https://gis-scccdd.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55109
+Stark County GIS Data,Ohio--Stark County,Ohio--Stark County|Ohio,11b-39151,http://opendata.starkcountyohio.gov/api/feed/dcat-us/1.1.json,11b-39151
+State of Michigan Open Data Portal,Michigan,Michigan,06a-01,http://gis-michigan.opendata.arcgis.com/api/feed/dcat-us/1.1.json,06a-01
+Stearns County GIS Data for Download,Minnesota--Stearns County,Minnesota--Stearns County|Minnesota,05b-27145,https://stearns-county-gis-stearns.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27145
+Summit County GIS Data,Ohio--Summit County,Ohio--Summit County|Ohio,11b-39153,https://data-summitgis.opendata.arcgis.com/api/feed/dcat-us/1.1.json,11b-39153
+UM Matthaei Botanical Gardens and Nichols Arboretum,Michigan,Michigan,07d-02,https://mbgna-umich.hub.arcgis.com/api/feed/dcat-us/1.1.json,07d-02
+University of Chicago Library GIS Data Hub,Illinois--Chicago,Illinois--Chicago|Illinois,12d-03,http://library-uchicago.opendata.arcgis.com/api/feed/dcat-us/1.1.json,12d-03
+"Washtenaw County, Michigan Open Data",Michigan--Washtenaw County,Michigan--Washtenaw County|Michigan,07b-26161,https://data-washtenaw.opendata.arcgis.com/api/feed/dcat-us/1.1.json,07b-26161
+Waukesha County GIS Download,Wisconsin--Waukesha County,Wisconsin--Waukesha County|Wisconsin,10b-55133,https://data-waukeshacounty.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55133
+Waupaca County GIS Download,Wisconsin--Waupaca County,Wisconsin--Waupaca County|Wisconsin,10b-55135,https://data2017-04-05t135915451z-waupacacounty.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55135
+Waushara County GIS Download,Wisconsin--Waushara County,Wisconsin--Waushara County|Wisconsin,10b-55137,https://data-waushara.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10b-55137
+"Wilkin County, Minnesota Open Data",Minnesota--Wilkin County,Minnesota--Wilkin County|Minnesota,05b-27167,https://hub-wilkinco.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27167
+Wisconsin Rapids Online Map Portal,Wisconsin--Wisconsin Rapids,Wisconsin--Wisconsin Rapids|Wisconsin,10c-04,https://rapidsdata-wisconsinrapids.opendata.arcgis.com/api/feed/dcat-us/1.1.json,10c-04
+Wood County Open Data Portal,Wisconsin--Wood County,Wisconsin--Wood County|Wisconsin,10b-55141,https://opendata.woodcogis.com/api/feed/dcat-us/1.1.json,10b-55141
+Yellow Medicine County Hub,Minnesota--Yellow Medicine County,Minnesota--Yellow Medicine County|Minnesota,05b-27173,https://hub-yellowmedicine.hub.arcgis.com/api/feed/dcat-us/1.1.json,05b-27173

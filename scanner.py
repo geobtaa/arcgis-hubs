@@ -76,7 +76,7 @@ directory = r'.'
 
 
 # csv file contaning portal list 
-portalFile = 'arcPortals-sample.csv'
+portalFile = 'arcNew.csv'
 
 # list of metadata fields from the DCAT json schema for open data portals desired in the final report
 fieldnames = ['Title', 'Alternative Title', 'Description', 'Language', 'Creator', 'Title Source', 'Resource Class',
