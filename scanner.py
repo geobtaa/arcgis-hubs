@@ -243,7 +243,7 @@ def metadataNewItems(newdata, newitem_ids):
                 # If one of the distributions is a shapefile, change genre/format and get the downloadURL
                 format_types.append(dictionary["title"])
                 if dictionary["title"] == "Shapefile":
-                    resourceClass = "Datasets"
+                    resourceClass = "Datasets|Web services"
                     formatElement = "Shapefile"
                     if 'downloadURL' in dictionary.keys():
                         downloadURL = dictionary["downloadURL"].split('?')[0]
@@ -258,7 +258,7 @@ def metadataNewItems(newdata, newitem_ids):
                         webService = dictionary['accessURL']
 
                         if webService.rsplit('/', 1)[-1] == 'ImageServer':
-                            resourceClass = "Imagery"
+                            resourceClass = "Imagery|Web services"
                             formatElement = 'Imagery'
                             resourceType = "Satellite imagery"
                     else:
