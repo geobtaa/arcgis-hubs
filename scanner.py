@@ -2,41 +2,8 @@
 """
 Original created on Wed Mar 15 09:18:12 2017
 Edited Dec 28 2018; January 8, 2019
-@author: kerni016
-
-Updated July 28, 2020
-Updated by Yijing Zhou @YijingZhou33
-
-Updated October 6, 2020
-Updated by Ziying Cheng @Ziiiiing
-
-Updated February 16, 2021
-Updated by Yijing Zhou @YijingZhou33
--- populating spatial coverage based on bounding boxes
-
-Updated February 24, 2021
-Updated by Yijing Zhou @YijingZhou33
--- Handling download link errors for newly added items
-
-Updated May 13, 2021
-Updated by Ziying Cheng @Ziiiiing
--- Updating 'Genre' field
-
-Updated May 13, 2021
-Updated by Ziying Cheng @Ziiiiing
--- Updating the csv report for retired items
-
-Updated Dec 31, 2021
-Updated by Ziying Cheng @Ziiiiing
--- Updating the Provider, Member Of and Is Part Of fields
-
-Updated Apr 17, 2022
-Updated by Ziying Cheng @Ziiiiing
--- Updating the Theme, Duplicates, Title
-
-Changed February 1, 2023
-@karenmajewicz
-removes complex functions in order to run more regularly
+@authors: 
+@kerni016, @YijingZhou33, @Ziiiiing, @karenmajewicz
 
 """
 # Need to define directory path (containing arcPortals.csv, folder "jsons" and "reports"), and list of fields desired in the printed report
@@ -73,7 +40,6 @@ import requests
 # MAC or Linux:
 directory = r'.'
 
-
 # csv file contaning portal list 
 portalFile = 'arcPortals.csv'
 
@@ -84,11 +50,9 @@ fieldnames = ['Title', 'Alternative Title', 'Description', 'Language', 'Creator'
               'FeatureServer', 'ImageServer', 'ID', 'Identifier', 'Provider', 'Code', 'Member Of', 'Is Part Of', 'Rights',
               'Accrual Method', 'Date Accessioned', 'Access Rights']
 
-# list of fields to use for the deletedItems report
-delFieldsReport = ['ID', 'document[b1g_dateRetired_s]', 'document[b1g_status_s]', 'document[publication_state]']
 
 # list of fields to use for the portal status report
-statusFieldsReport = ['portalName', 'total', 'new_items', 'deleted_items']
+statusFieldsReport = ['portal_ID', 'total', 'new_items']
 
 # dictionary using partial portal code to find out where the data portal belongs
 statedict = {'01': 'Indiana', '02': 'Illinois', '03': 'Iowa', '04': 'Maryland', '04c-01': 'District of Columbia', 
@@ -136,7 +100,6 @@ def printReport(report, dictionary, fields):
 
 # Similar to the function above but generates two csv files (allNewItems & allDeletedItems)
 
-
 def printItemReport(report, fields, dictionary):
     with open(report, 'w', newline='', encoding='utf-8') as outfile:
         csvout = csv.writer(outfile)
@@ -163,7 +126,7 @@ def getTitles(data):
         json_titles[x] = data["dataset"][x]["title"]
     return json_titles
 
-'''Auto-generate Title field be like alternativeTitle [titleSource(place name)] {year if exist in alternative title}'''
+'''Auto-generate Title field to be in the format alternativeTitle [publisher] {year if exist in alternative title}'''
 def format_title(alternativeTitle, titleSource):
     # find if year exist in alternativeTitle
     year = ''  
@@ -175,10 +138,6 @@ def format_title(alternativeTitle, titleSource):
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
     elif single_year:  # or if a 'yyyy' exists
         year = single_year.group(1)
-
-
-
-
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
         
     title = alternativeTitle + ' [{}]'.format(titleSource)
@@ -341,7 +300,7 @@ def metadataNewItems(newdata, newitem_ids):
                         resourceClass, theme, keyword_list, dateIssued, temporalCoverage,
                         dateRange, spatialCoverage, bbox, resourceType,
                         formatElement, information, downloadURL, mapServer, featureServer,
-                        imageServer, slug, identifier_new, provider, portalName, memberOf, isPartOf, rights,
+                        imageServer, slug, identifier_new, provider, portal_ID, memberOf, isPartOf, rights,
                         accrualMethod, dateAccessioned, accessRights]
 
         # deletes data portols except genere = 'Geospatial data' or 'Aerial imagery'
@@ -369,19 +328,19 @@ ActionDate = time.strftime('%Y%m%d')
 filenames = os.listdir('jsons')
 
 # Open a list of portals and urls ending in /data.json from input CSV
-# using column headers 'portalName', 'URL', 'provider', 'SpatialCoverage'
+# using column headers 'portal_ID', 'URL', 'provider', 'SpatialCoverage'
 with open(portalFile, newline='', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
         # Read in values from the portals list to be used within the script or as part of the metadata report
-        portalName = row['ID']
+        portal_ID = row['ID']
         url = row['Identifier']
         provider = row['Title']
         titleSource = row['Publisher']
         spatialCoverage = row['Spatial Coverage']
         isPartOf  = row['ID']
         memberOf = row['Member Of']
-        print(portalName, url)
+        print(portal_ID, url)
         accrualMethod = "ArcGIS Hub"
         dateAccessioned = time.strftime('%Y-%m-%d')
         accessRights = "Public"
@@ -394,8 +353,8 @@ with open(portalFile, newline='', encoding='utf-8') as f:
         # loop over all file names in 'filenames' list and find the json files for the selected portal
         # extract the previous action dates only from these files and store in the 'dates' list
         for filename in filenames:
-            if filename.startswith(portalName):
-                # format of filename is 'portalName_YYYYMMDD.json'
+            if filename.startswith(portal_ID):
+                # format of filename is 'portal_ID_YYYYMMDD.json'
                 # 'YYYYMMDD' is located from index -13(included) to index -5(excluded)
                 dates.append(filename[-13:-5])
 
@@ -411,10 +370,10 @@ with open(portalFile, newline='', encoding='utf-8') as f:
         else:  # for brand new portals
             PreviousActionDate='00000000'
 
-        # renames file paths based on portalName and manually provided dates
+        # renames file paths based on portal_ID and manually provided dates
         oldjson = directory + \
-            '/jsons/%s_%s.json' % (portalName, PreviousActionDate)
-        newjson = directory + '/jsons/%s_%s.json' % (portalName, ActionDate)
+            '/jsons/%s_%s.json' % (portal_ID, PreviousActionDate)
+        newjson = directory + '/jsons/%s_%s.json' % (portal_ID, ActionDate)
 
         # if newjson already exists, do not need to request again
         if os.path.exists(newjson):
@@ -425,7 +384,7 @@ with open(portalFile, newline='', encoding='utf-8') as f:
             # check if data portal URL is broken
             if response.headers['content-type'] != 'application/json; charset=utf-8':
                 print("\n--------------------- Data portal URL does not exist --------------------\n",
-                      portalName, url,  "\n--------------------------------------------------------------------------\n")
+                      portal_ID, url,  "\n--------------------------------------------------------------------------\n")
                 continue
             else:
                 newdata = json.load(response)
@@ -436,7 +395,7 @@ with open(portalFile, newline='', encoding='utf-8') as f:
 
         # collects information about number of resources (total, new, and old) in each portal
         status_metadata = []
-        status_metadata.append(portalName)
+        status_metadata.append(portal_ID)
 
         # Opens older copy of data/json downloaded from the specified Esri Open Data Portal.
         # If this file does not exist, treats every item in the portal as new.
@@ -516,7 +475,7 @@ with open(portalFile, newline='', encoding='utf-8') as f:
 
         # if there is no older json for comparions....
         else:
-            print("There is no comparison json for %s" % (portalName))
+            print("There is no comparison json for %s" % (portal_ID))
             # Makes a list of dataset identifiers in the new json
             newjson_ids = getIdentifiers(newdata)
 
@@ -527,7 +486,7 @@ with open(portalFile, newline='', encoding='utf-8') as f:
             for value in status_metalist:
                 status_metadata.append(value)
 
-        Status_Report[portalName] = status_metadata
+        Status_Report[portal_ID] = status_metadata
 
 # prints two csv spreadsheets with all items that are new or deleted since the last time the data portals were harvested
 newItemsReport = directory + \
