@@ -71,7 +71,7 @@ import requests
 # Windows:
 # directory = r'D:\Library RA\dcat-metadata'
 # MAC or Linux:
-directory = r'.'
+directory = r'/Users/Thenewsguy/Documents/GitHub/arcgis-hubs'
 
 
 # csv file contaning portal list 
