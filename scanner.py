@@ -166,26 +166,27 @@ def getTitles(data):
 '''Auto-generate Title field be like alternativeTitle [titleSource(place name)] {year if exist in alternative title}'''
 def format_title(alternativeTitle, titleSource):
     # find if year exist in alternativeTitle
-    year = ''  
-    year_range = re.findall(r'(\d{4})-(\d{4})', alternativeTitle)
-#     single_year = re.match(r'.*([1-3][0-9]{3})', alternativeTitle)  
-    single_year = re.match(r'.*(17\d{2}|18\d{2}|19\d{2}|20\d{2})', alternativeTitle)    
+    year = ''
+    try:  
+      year_range = re.findall(r'(\d{4})-(\d{4})', alternativeTitle)
+#     single_year = re.match(r'.*([1-3][0-9]{3})', alternativeTitle) 
+    except:
+      year_range = ''
+    try: 
+      single_year = re.match(r'.*(17\d{2}|18\d{2}|19\d{2}|20\d{2})', alternativeTitle)
+    except:
+      single_year = ''    
     if year_range:   # if a 'yyyy-yyyy' exists
         year = '-'.join(year_range[0])
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
     elif single_year:  # or if a 'yyyy' exists
         year = single_year.group(1)
-
-
-
-
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
-        
-    title = alternativeTitle + ' [{}]'.format(titleSource)
-    
+     
+    altTitle = str(alternativeTitle)
+    title = altTitle + ' [{}]'.format(titleSource)   
     if year:
-        title += ' {' + year +'}'
-        
+        title += ' {' + year +'}'       
     return title
 
 
