@@ -75,7 +75,7 @@ directory = r'.'
 
 
 # csv file contaning portal list 
-portalFile = 'arcPortals.csv'
+portalFile = 'arcIowa.csv'
 
 # list of metadata fields from the DCAT json schema for open data portals desired in the final report
 fieldnames = ['Title', 'Alternative Title', 'Description', 'Language', 'Creator', 'Title Source', 'Resource Class',
@@ -181,7 +181,7 @@ def format_title(alternativeTitle, titleSource):
 
         alternativeTitle = alternativeTitle.replace(year, '').strip().rstrip(',')
         
-    title = alternativeTitle + ' [{}]'.format(titleSource)
+    title = str(alternativeTitle + ' [{}]'.format(titleSource))
     
     if year:
         title += ' {' + year +'}'
