@@ -1,55 +1,59 @@
-# DCAT Maintenance
 This repository is for tracking the BTAA GDP harvesting activities from ArcGIS Hub data portals
 
 
+### Step 1. Get the active portal list by downloading them from GEOMG. 
 
+1. Look for sites with these parameters:
+   -  Resource Class: Websites
+   - Accrual Method: DCAT US 1.1
+   - This link should work: https://geomg.lib.umn.edu/documents?f%5Bb1g_dct_accrualMethod_s%5D%5B%5D=DCAT+US+1.1&f%5Bgbl_resourceClass_sm%5D%5B%5D=Websites&rows=20&sort=score+desc
 
-## Environment Setup
+2. Rename the downloaded file arcPortals.csv
 
-We We will be using **Anaconda 3** to edit and run scripts. Information on Anaconda installation can be found [here](https://docs.anaconda.com/anaconda/install/).  All packages available for 64-bit Windows with Python 3.7 in the Anaconda can be found [here](https://docs.anaconda.com/anaconda/packages/py3.7_win-64/). Please note that all scripts are running on Python 3 (**3.7.6**).
+Note: we will no longer maintain a separate list as a CSV in these repos. It has been too hard to keep them in sync.  Any changes or updates to the Hub sites should be done in GEOMG. Once the CSV has been downloaded, we don't need to adjust the field names, because I updated the script to find them as is.
 
-Here are all dependencies needed to be installed properly: 
+### Step 2: Prepare the repo
 
-- [geopandas](https://geopandas.org/getting_started/install.html) [Version: 0.7.0]
+1. Make a new branch for the scan and name it by date. (ex 2023-02-08)
+2. Clear out the documents in the JSONS and REPORTS folders
+3. Put the downloaded arcPortals.csv in the repo next to the folders
 
-- [shapely](https://pypi.org/project/Shapely/) [Version: 1.7.0]
+I did not completely disable the comparison feature in the script yet, but we do not want to use it for our regular scans. Clear out the folders so that the script has nothing to compare to. It will download the full JSONs and create a CSV of all items.
 
-- [requests](https://requests.readthedocs.io/en/master/user/install/#install) [Version: 2.22.0]
+note: the current script still looks for dates. If you have already downloaded a JSON from a portal with today's date in the filename, it will just use that one. Otherwise, it will download a new one.
 
-- [numpy](https://numpy.org/install/) [Version: 1.18.1]
+### Step 3: Run scanner.py
 
+1. Open Terminal
+2. CD into directory
+3. type python scanner.py
+4. Troubleshoot!
 
+The Hub sites are fairly unstable and it is likely that one or more of them will fail and interrupt the script. Check and see if the site is down, moved, etc. Make any updates to GEOMG directly. For tracking problems, the Status field in GEOMG is plain text and can be used for admin notes.
 
-## Python Scripts
-- ### scanner.py
+- If a site is missing, Unpublish it from GEOMG and indicate the Date Retired, and make a note in the Status field.  
+- If a site just isn't working, Remove the value "DCAT US 1.1" from the Accrual Method field and make a note in the Status field.
 
-This script can be run regularly to find new portals.  
+Edit the arcPortals.csv (or re-download it) and keep running until it works.
 
- 
+### Step 4: Inspect the results and make edits as needed
 
+1. Open the CSV in the Reports folder. (currently called allNewItems  - we may change this)
+2. Remove duplicate items using a spreadsheet function to keep only the first instances of these values:
+- ID
+- Title (optional)
 
+There may be other things to check for.  Removing duplicates could also be added back into the script.
 
-## CSV Lists
-These list the current and historical portal URL. The scripts above that harvest from hosted JSONS require accompanying lists of where to harvest from. These are referenced in the section of the script commented as *"Manual items to change!"*
+### Step 5: Upload to GEOMG
 
-- ### arcPortals.csv
+1. Uploaded new batch, making sure the Date Accessioned was filled in with today's date
+2. Searched for the previous harvest date [example for 2023-03-07](https://geomg.lib.umn.edu/documents?f%5Bb1g_dct_accrualMethod_s%5D%5B%5D=ArcGIS+Hub&q=%222023-03-07%22&rows=20&sort=score+desc)
+3. Unpublished the ones that have the old date in the Date Accessioned field - record this number in the ticket under Number Deleted
+4. Look for records in the uploaded batch that are still "Draft" - these are new records. Publish them and record this number in the GitHub issue ticked under Number Added
 
-    This file should have five columns *(portalName, URL, provenance, publisher, and spatialCoverage)* with details about ESRI open data portals to be checked for new records.
+### Step 6: Publish your branch to GitHub
 
+This will just be for tracking purposes. Do not open a pull request to update the main branch.
 
-
-## Folders
-
-- ### jsons
-
-    This holds all harvested JSONs with the naming convention of **portalName_YYYYMMDD.json**. Once running the python scripts, newly generated JSON files need to be uploaded. The date in the latest JSON filename is used to define *PreviousActionDate*. These are referenced in the section of the script commented as *"Manual items to change!"*
-
-
-- ### reports
-  
-    This holds all CSV reports of new and deleted items and portal status reports :
-    - **allNewItems_YYYYMMDD.csv**
-    - **allDeletedItems_YYYYMMDD.csv**
-    - **portal_status_report_YYYYMMDD.csv**
-    
-    Once running the python scripts, newly generated CSV files need to be uploaded. Like JSONs, the date in the latest CSV filename is used to define *PreviousActionDate*. These are referenced in the section of the script commented as *"Manual items to change!"*
+If you edit the scanner script, create a different branch with a name related to the work (ex. fix-date-scan) and create a pull request for that. Mainly, we want to avoid merging all of the JSON and CSV files we create in each branch.
