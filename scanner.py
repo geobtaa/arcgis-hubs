@@ -38,6 +38,9 @@ Changed February 1, 2023
 @karenmajewicz
 removes complex functions in order to run more regularly
 
+Updated March 29, 2023
+@karenmajewicz
+remove duplicate IDs from output
 """
 # Need to define directory path (containing arcPortals.csv, folder "jsons" and "reports"), and list of fields desired in the printed report
 # The script currently prints one combined report - one of new items
@@ -615,14 +618,13 @@ def format_coordinates(df, identifier):
 
     return [df_clean, df_wrongcoords]
 
-
 df_csvlist = format_coordinates(df_csv, 'ID')
 df_clean = df_csvlist[0]
 df_wrongcoords = df_csvlist[1]
 
-
 df_newitems = pd.read_csv(newItemsReport)
-df_newitems.to_csv(newItemsReport, index=False)
+df_finalItems = df_newitems.drop_duplicates(subset=['ID'])
+df_finalItems.to_csv(newItemsReport, index=False)
 
 
 print("\n--------------------- Congrats! ╰(￣▽￣)╯ --------------------\n")
