@@ -39,11 +39,7 @@ Edit the arcPortals.csv (or re-download it) and keep running until it works.
 ### Step 4: Inspect the results and make edits as needed
 
 1. Open the CSV in the Reports folder. (currently called allNewItems  - we may change this)
-2. Remove duplicate items using a spreadsheet function to keep only the first instances of these values:
-- ID
-- Title (optional)
-
-There may be other things to check for.  Removing duplicates could also be added back into the script.
+2. Remove any items that have obvious errors or are not useful. 
 
 ### Step 5: Upload to GEOMG
 
@@ -52,8 +48,12 @@ There may be other things to check for.  Removing duplicates could also be added
 3. Unpublished the ones that have the old date in the Date Accessioned field - record this number in the ticket under Number Deleted
 4. Look for records in the uploaded batch that are still "Draft" - these are new records. Publish them and record this number in the GitHub issue ticked under Number Added
 
-### Step 6: Publish your branch to GitHub
 
-This will just be for tracking purposes. Do not open a pull request to update the main branch.
+!!! note
 
-If you edit the scanner script, create a different branch with a name related to the work (ex. fix-date-scan) and create a pull request for that. Mainly, we want to avoid merging all of the JSON and CSV files we create in each branch.
+	We will avoid publishing the branch from each harvest as they would exceed GitHub's size quota. If you edit the scanner script, create a different branch with a name related to the work (ex. fix-date-scan) and create a pull request just for the script edits.  Use GEOMG to review the history of imports.
+	
+	
+## Periodic maintenance
+
+We will inventory the list of ArcGIS Hubs in our region to monitor status and to see if new Hubs have been published.
